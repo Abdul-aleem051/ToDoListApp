@@ -17,23 +17,23 @@ namespace ToDoListApp
         {
             try
             {
-                 Console.WriteLine("Enter task description:");
-            string description = Console.ReadLine()!;
+                Console.WriteLine("Enter task description:");
+                string description = Console.ReadLine()!;
 
-            Console.WriteLine("Enter deadline (yyyy-MM-dd, HH-mm):");
-            bool deadline = DateTime.TryParse(Console.ReadLine()!, out DateTime deadlineTime);
- 
-            Task newTask = new Task(description, deadlineTime);
-            tasks.Add(newTask);
+                Console.WriteLine("Enter deadline (yyyy-MM-dd):");
+                DateTime deadline = DateTime.Parse(Console.ReadLine()!);
 
-            Console.WriteLine("Task added! Press any key to continue.");
-            Console.ReadKey();
+                Task newTask = new Task(description, deadline);
+                tasks.Add(newTask);
+
+                Console.WriteLine("Task added! Press any key to continue.");
+                Console.ReadKey();
             }
-            catch(FormatException ex )
+            catch (FormatException)
             {
-                Console.WriteLine($"{ex.Message}");
+                Console.WriteLine($"Invalid format!!,Please input a valid date.");
 
-        }
+            }
         }
 
 
