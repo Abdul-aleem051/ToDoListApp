@@ -4,12 +4,11 @@ namespace ToDoListApp
 {
     public class TaskManager
     {
-        private string userName;
-        private List<Task> tasks;
+           private List<Task> tasks;
 
         public TaskManager(string userName)
         {
-            this.userName = userName;
+            
             tasks = new List<Task>();
         }
 
