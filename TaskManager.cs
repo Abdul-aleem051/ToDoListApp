@@ -19,11 +19,13 @@ namespace ToDoListApp
                 Console.WriteLine("Enter task description:");
                 string description = Console.ReadLine()!;
 
-                Console.WriteLine("Enter deadline (yyyy-MM-dd):");
-                DateTime deadline = DateTime.Parse(Console.ReadLine()!);
+                Console.WriteLine("Enter deadline (hh:mm, yyyy-mm-dd):");
+                bool deadline = DateTime.TryParse(Console.ReadLine()!, out DateTime deadlineTime);
 
-                Task newTask = new Task(description, deadline);
+                Task newTask = new Task(description, deadlineTime);
                 tasks.Add(newTask);
+        
+                
 
                 Console.WriteLine("Task added! Press any key to continue.");
                 Console.ReadKey();
@@ -42,7 +44,7 @@ namespace ToDoListApp
             foreach (var task in tasks)
             {
                 string status = task.IsComplete ? "Complete" : "Incomplete";
-                Console.WriteLine($"- {task.Description} (Deadline: {task.Deadline.ToShortDateString()}) - {status}");
+                Console.WriteLine($"- {task.Description} (Deadline: {task.Deadline}) - {status}");
             }
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
