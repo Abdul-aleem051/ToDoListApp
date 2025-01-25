@@ -24,6 +24,11 @@ namespace ToDoListApp
 
                 Task newTask = new Task(description, deadlineTime);
                 tasks.Add(newTask);
+                if(!deadline)
+                {
+                    Console.WriteLine("This is not a valid DATE or TIME");
+                    return;
+                }
         
                 
 
