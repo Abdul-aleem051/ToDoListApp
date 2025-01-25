@@ -15,18 +15,27 @@ namespace ToDoListApp
 
         public void AddTask()
         {
-            Console.WriteLine("Enter task description:");
+            try
+            {
+                 Console.WriteLine("Enter task description:");
             string description = Console.ReadLine()!;
 
-            Console.WriteLine("Enter deadline (yyyy-MM-dd):");
-            DateTime deadline = DateTime.Parse(Console.ReadLine()!);
-
-            Task newTask = new Task(description, deadline);
+            Console.WriteLine("Enter deadline (yyyy-MM-dd, HH-mm):");
+            bool deadline = DateTime.TryParse(Console.ReadLine()!, out DateTime deadlineTime);
+ 
+            Task newTask = new Task(description, deadlineTime);
             tasks.Add(newTask);
 
             Console.WriteLine("Task added! Press any key to continue.");
             Console.ReadKey();
+            }
+            catch(FormatException ex )
+            {
+                Console.WriteLine($"{ex.Message}");
+
         }
+        }
+
 
         public void ViewTasks()
         {
@@ -77,4 +86,3 @@ namespace ToDoListApp
         }
     }
 }
-

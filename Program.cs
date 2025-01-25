@@ -8,7 +8,6 @@ TaskManager taskManager = new TaskManager(userName);
 
 while (true)
 {
-    Console.Clear();
     Console.WriteLine($"Welcome, {userName}!");
     Console.WriteLine("1. Add Task");
     Console.WriteLine("2. View Tasks");
@@ -17,6 +16,7 @@ while (true)
     Console.WriteLine("5. Exit");
     Console.Write("Choose an option: ");
     
+    
     string choice = Console.ReadLine()!;
 
     switch (choice)
@@ -24,6 +24,7 @@ while (true)
         case "1":
             taskManager.AddTask();
             break;
+
         case "2":
             taskManager.ViewTasks();
             break;
