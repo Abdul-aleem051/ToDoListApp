@@ -5,12 +5,14 @@ namespace ToDoListApp
 {
     public class Task
     {
-        public string Description { get; set; }
+        public string Name { get; set;}
+        public string? Description { get; set; }
         public DateTime Deadline { get; set; }
         public bool IsComplete { get; private set; }
 
-        public Task(string description, DateTime deadline)
+        public Task(string name,string description, DateTime deadline)
         {
+            Name = name;
             Description = description;
             Deadline = deadline;
             IsComplete = false;
